@@ -1,0 +1,4 @@
+C:\Projects\OOP-FundamentalPrinciples-PartI\Task1\bin\Release\Task1.exe
+C:\Projects\OOP-FundamentalPrinciples-PartI\Task1\bin\Release\Task1.pdb
+C:\Projects\OOP-FundamentalPrinciples-PartI\Task1\obj\x86\Release\Task1.exe
+C:\Projects\OOP-FundamentalPrinciples-PartI\Task1\obj\x86\Release\Task1.pdb
