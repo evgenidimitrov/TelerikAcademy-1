@@ -10,6 +10,8 @@ namespace Task1
         List<Teacher> teachers;
         List<Student> students;
         public string ClassID { get; set; }
+
+        public string Comment { get; set; }
         
         public SchoolClass(string ClassID)
         {

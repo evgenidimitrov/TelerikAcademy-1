@@ -33,6 +33,7 @@ namespace Task3
 
             dogs[2].IdentifyAnimal();
             cats[1].IdentifyAnimal();
+            frogs[3].ProduceSound();
 
             Console.WriteLine("Average age of dogs " + Animal.Average(dogs));
             Console.WriteLine("Average age of frogs " + Animal.Average(frogs));

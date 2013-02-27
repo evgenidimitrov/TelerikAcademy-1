@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Task3
 {
+    
     public abstract class Animal
     {
         public int Age { get; set; }
@@ -18,12 +19,9 @@ namespace Task3
             this.Sex = sex;
         }
         
-        public abstract void ProduceSound();
-        
         public void IdentifyAnimal()
         {
             Console.WriteLine("I am " + GetType().Name);
-            ProduceSound();
         }
 
         public static double Average(Animal[] array)

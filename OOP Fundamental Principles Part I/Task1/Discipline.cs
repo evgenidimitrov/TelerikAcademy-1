@@ -10,6 +10,8 @@ namespace Task1
         public string Name { get; set; }
         public int NumberOfLectures { get; set; }
         public int NumberOfExercises { get; set; }
+
+        public string Comment { get; set; }
         
         public Discipline(string Name, int numberOfLectures, int numberOfExercises)
         {

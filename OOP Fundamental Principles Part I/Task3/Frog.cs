@@ -5,13 +5,13 @@ using System.Text;
 
 namespace Task3
 {
-    class Frog : Animal
+    class Frog : Animal, ISound
     {
         public Frog(int age, string name, char sex)
             : base(age, name, sex)
         {
         }
-        public override void ProduceSound()
+        public void ProduceSound()
         {
             Console.WriteLine(this.Name + " says qwak.");
         }
