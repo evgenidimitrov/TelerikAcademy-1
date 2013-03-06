@@ -5,14 +5,13 @@ using System.Text;
 
 namespace Task1
 {
-    class SchoolClass
+    class SchoolClass : ICommentable
     {
         List<Teacher> teachers;
         List<Student> students;
+
         public string ClassID { get; set; }
 
-        public string Comment { get; set; }
-        
         public SchoolClass(string ClassID)
         {
             this.ClassID = ClassID;
@@ -20,5 +19,11 @@ namespace Task1
             this.students = new List<Student>();          
         }
 
+        public List<string> Comments { get; set; }
+
+        public void AddComment(string comment)
+        {
+            Comments.Add(comment);
+        }
     }
 }

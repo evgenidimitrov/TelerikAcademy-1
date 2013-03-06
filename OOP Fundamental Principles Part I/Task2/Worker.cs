@@ -23,9 +23,5 @@ namespace Task2
             return WeekSalary / (WorkHoursPerDay * 5.0);
         }
 
-        public static int CompareMoneyPerHour(Worker one, Worker two)
-        {
-            return one.MoneyPerHour().CompareTo(two.MoneyPerHour());
-        }
     }
 }

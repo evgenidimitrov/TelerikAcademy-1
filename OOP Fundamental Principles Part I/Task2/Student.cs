@@ -16,10 +16,5 @@ namespace Task2
             this.Grade = grade;
         }
 
-        public static int CompareGrades(Student one, Student two)
-        {
-            return one.Grade.CompareTo(two.Grade);
-        }
-
     }
 }
