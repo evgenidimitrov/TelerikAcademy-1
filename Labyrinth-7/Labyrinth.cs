@@ -42,14 +42,14 @@ namespace Labyrinth
         {
             if (s.Count != 0)
             {
-                s.Sort(delegate(Table s1, Table s2) { return s1.moves.CompareTo(s2.moves); });
+                s.Sort(delegate(Table s1, Table s2) { return s1.Moves.CompareTo(s2.Moves); });
             }
 
 
             if (s.Count == 5)
             {
 
-                if (s[4].moves > m)
+                if (s[4].Moves > m)
                 {
 
                     s.Remove(s[4]);
@@ -81,14 +81,14 @@ namespace Labyrinth
             else
             {
                 int i = 1;
-                scores.Sort(delegate(Table s1, Table s2) { return s1.moves.CompareTo(s2.moves); });
+                scores.Sort(delegate(Table s1, Table s2) { return s1.Moves.CompareTo(s2.Moves); });
                 Console.WriteLine("Top 5: \n");
                 scores.ForEach(delegate(Table s)
                 {
 
 
 
-                    Console.WriteLine(String.Format(i+". {1} ---> {0} moves", s.moves, s.name));
+                    Console.WriteLine(String.Format(i+". {1} ---> {0} moves", s.Moves, s.Name));
                     i++;   
                 }
                 );

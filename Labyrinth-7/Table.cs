@@ -2,13 +2,14 @@ namespace Labyrinth
 {
     public class Table
     {
-        public int moves;
-        public string name;
+        public int Moves { get; set; }
+        public string Name { get; set; };
+
 
         public Table(int moves, string name)
         {
-            this.moves = moves;
-            this.name = name;
+            this.Moves = moves;
+            this.Name = name;
         }
     }
 }
