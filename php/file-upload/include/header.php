@@ -1,6 +1,6 @@
 <?php
-session_name("atanas");
-session_set_cookie_params(3600,'/','localhost',false, true);
+session_name("file-upload");
+session_set_cookie_params(3600,'/',$_SERVER["HTTP_HOST"],false, true);
 session_start();
 ?>
 <!DOCTYPE html>
