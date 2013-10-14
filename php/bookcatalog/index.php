@@ -45,7 +45,6 @@ $rearrangedResult [$row ["book_id"]] ["authors"] [$row ["author_id"]] = $row ["a
 	</tr>
 <?php 
 
-var_dump($rearrangedResult);
 	foreach ( $rearrangedResult as $value ) {
 					echo "<tr><td>";
 					echo $value ["book"];
