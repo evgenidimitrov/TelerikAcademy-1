@@ -44,11 +44,14 @@ $rearrangedResult [$row ["book_id"]] ["authors"] [$row ["author_id"]] = $row ["a
 		<td>Автори</td>
 	</tr>
 <?php 
+
+var_dump($rearrangedResult);
 	foreach ( $rearrangedResult as $value ) {
 					echo "<tr><td>";
 					echo $value ["book"];
 					echo "</td>";
 					echo "<td>";
+					$authors= array();
 					foreach ( $value ["authors"] as $key=>$innervalue )
 						$authors[]= "<a href='getbooks.php?authorid=$key'>" . $innervalue . "</a>";
 					echo implode(',&nbsp;&nbsp;', $authors);    

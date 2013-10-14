@@ -46,6 +46,7 @@ if ($result) {
 					echo $value ["book"];
 					echo "</td>";
 					echo "<td>";
+					$authors= array();
 					foreach ( $value ["authors"] as $key=>$innervalue )
 						$authors[]= "<a href='getbooks.php?authorid=$key'>" . $innervalue . "</a>";
 					echo implode(',&nbsp;&nbsp;', $authors);  
