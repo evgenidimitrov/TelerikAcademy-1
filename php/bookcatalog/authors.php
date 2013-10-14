@@ -73,6 +73,7 @@ $result = mysqli_query ( $connection, $query );
 		<td>Автори</td>
 	</tr>
 		<?php 
+		$authors =array();
 		while ( $row = mysqli_fetch_assoc ( $result ) ) {
 			$authors [] = $row;
 		}
