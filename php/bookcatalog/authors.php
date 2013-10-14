@@ -2,7 +2,41 @@
 $pageTitle = "Автори";
 include 'include/header.php';
 require_once 'include/dbconfig.php';
+mb_internal_encoding('UTF-8');
 
+if (isset ( $_POST ['submit'] )) {
+	$error = false;
+	// data is filtred for XSS (cross site scripts)
+	$authorname = sanitizeString ( $_POST ['authorname'] );
+
+	// data is filtred for sql injection
+	$authorname = mysqli_real_escape_string ( $connection, $authorname );
+	$authornameLength = mb_strlen ( $authorname );
+
+	if ($authornameLength < 3 || $authornameLength > 250) {
+		echo "Името на автора трябва да е между 3 и 250 символа.<br />";
+		$error = true;
+	}
+	
+	$query = "SELECT * FROM authors WHERE author_name = $authorname";
+	$result = mysqli_query ( $connection, $query );
+	if ($result) {
+		if (mysqli_num_rows ( $result ) > 0) { 
+			echo  "Aвторът вече е добавен.<br />";
+			$error=true;
+		 }
+	}
+
+	if (! $error) {
+		$query = "INSERT INTO authors (author_name) VALUES ('$authorname')";
+		$result = mysqli_query ( $connection, $query );
+		if ($result) {
+			echo 'Авторът е добавен!<br />';
+		} else {
+			echo 'Има грешка при добавяне на автор.<br /> ';
+		}
+	}
+}
 //previous entered texts in form are saved on error
 ?>
 <a href="./">Книги</a>
@@ -51,39 +85,3 @@ $result = mysqli_query ( $connection, $query );
 	?>
 </table>
 
-<?php
-
-if (isset ( $_POST ['submit'] )) {
-	$error = false;
-	// data is filtred for XSS (cross site scripts)
-	$authorname = sanitizeString ( $_POST ['authorname'] );
-	
-	// data is filtred for sql injection
-	$authorname = mysqli_real_escape_string ( $connection, $authorname );
-	$authornameLength = mb_strlen ( $authorname );
-	
-	if ($authornameLength < 3 || $authornameLength > 250) {
-		echo "Името на автора трябва да е между 3 и 250 символа.<br />";
-		$error = true;
-	}
-	
-	foreach ( $authors as $value ) {
-		if ($authorname == $value ['author_name']) {
-			echo "Авторът вече е въведен.<br />";
-			$error = true;
-			break;
-		}
-	}
-	
-	if (! $error) {
-		$query = "INSERT INTO authors (author_name) VALUES ('$authorname')";
-		$result = mysqli_query ( $connection, $query );
-		if ($result) {
-			echo 'Авторът е добавен!';
-			header ( 'Location: ' . $_SERVER ['PHP_SELF'] );
-			exit ();
-		} else {
-			echo 'Има грешка при добавяне на автор. ';
-		}
-	}
-}

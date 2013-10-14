@@ -2,7 +2,7 @@
 $pageTitle = "Нова книга";
 include 'include/header.php';
 require_once 'include/dbconfig.php';
-
+mb_internal_encoding('UTF-8');
 $query = "SELECT * FROM authors ";
 $result= mysqli_query($connection, $query);
 
