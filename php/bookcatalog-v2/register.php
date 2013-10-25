@@ -28,7 +28,10 @@ if (isset ( $_POST ['submit'] )) {
 		echo "<div class='alert alert-danger'>Password  should be at least 5 chars.</div>";
 		$error = true;
 	}
-	
+	if (! strpos($username, " ") === false) {
+		echo "<div class='alert alert-danger'>Username should not contain spaces.</div>";
+		$error = true;
+	}
 	$username = mysqli_real_escape_string ( $connection, $username );
 	$query = "SELECT *  FROM users WHERE username='$username'";
 	$result = mysqli_query ( $connection, $query );
